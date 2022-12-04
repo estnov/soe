@@ -1,0 +1,66 @@
+<div class="card" style="margin-top: 75px">
+    
+    <div class="flex flex-wrap align-items-center  justify-content-center card-container yellow-container">
+        <div class="p-field " style="margin-top: 25px; margin-bottom: 25px">
+            <p-messages [(value)]="msgs1"  *ngIf="error"></p-messages>
+            <div class="grid" >
+                <label for="nombre"  class="col">Nombres completos: </label>
+                <input id="nombre" class="col" type="username" aria-describedby="username1-help" pInputText [(ngModel)]="nombres" />
+            </div>
+            <br>
+            <div class="grid" >
+                <label for="apellido"  class="col">Apellidos completos: </label>
+                <input id="apellido" class="col" type="username" aria-describedby="username1-help" pInputText [(ngModel)]="apellidos" />
+            </div>
+            <br>
+            <div class="grid" >
+                <label for="direccion"  class="col">Dirección: </label>
+                <input id="direccion" class="col" type="username" aria-describedby="username1-help" pInputText [(ngModel)]="direccion" />
+            </div>
+            <br>
+            <div class="grid" >
+                <label for="ciudad"  class="col">Ciudad: </label>
+                <input id="ciudad" class="col" type="username" aria-describedby="username1-help" pInputText [(ngModel)]="ciudad" />
+            </div>
+            <br>
+            <div class="grid" >
+                <label for="telefono"  class="col">Teléfono: </label>
+                <input id="telefono" class="col" type="username" aria-describedby="username1-help" pInputText [(ngModel)]="telefono" />
+            </div>
+            <br>
+            <div class="grid" >
+                <label for="Fecha de nacimiento"  class="col">Fecha de nacimiento: </label>
+                <p-calendar [(ngModel)]="fechaNacimiento" class="col"></p-calendar>
+            </div>
+            <br>
+            <hr><div class="grid" >
+                <label for="cedula"  class="col">cedula: </label>
+                <input id="cedula" class="col" type="username" aria-describedby="username1-help" pInputText [(ngModel)]="cedula" />
+            </div>
+            <br>
+            <div class="grid" >
+                <label for="cedula"  class="col">Imagen de tu cédula frontal en formato JPG o PNG: </label>
+                <input type="file" accept=".png, .jpg, .jpeg, .bitmap" (change)="onUpload($event)">
+            </div>
+            <br>
+            <div *ngIf="urlImage | async " class="grid">
+                <p class="col">Previsualización: </p>
+                <img class="col" src="{{setUrl(urlImage | async)}}" width="150" >   
+            </div>
+
+            <br>
+            <div class="flex flex-wrap align-items-center  justify-content-center card-container yellow-container">
+                <p-button label="Crear usuario" (onClick)="verificar()" class="justify-content-center align-items-center" icon="pi pi-user" *ngIf="urlImage | async ; else btnDisabled"></p-button>
+                
+                <ng-template #btnDisabled>
+                    
+                    <p-button label="Verificar usuario"  [disabled]="true" class="justify-content-center align-items-center" icon="pi pi-user"></p-button>
+                    
+                </ng-template>
+            </div>
+        
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,51 @@
+<div class="card" style="margin-top: 75px">
+    
+    <div class="flex flex-wrap align-items-center  justify-content-center card-container yellow-container">
+        <div class="p-field " style="margin-top: 25px; margin-bottom: 25px">
+            <p-messages [(value)]="msgs1"  *ngIf="error"></p-messages>
+            <div class="grid" >
+                <label for="nombre"  class="col">Titulo: </label>
+                <input id="nombre" class="col" type="username" aria-describedby="username1-help" pInputText [(ngModel)]="titulo" />
+            </div>
+            <br>
+            <div class="grid" >
+                <label for="price"  class="col">Precio: </label>
+                <input id="price" class="col" type="number" aria-describedby="username1-help" pInputText [(ngModel)]="precio" />
+            </div>
+            <br>
+            <div class="grid" >
+                <label for="descripcion"  class="col">Descripcion: </label>
+                <textarea [rows]="5" class="col" [cols]="30" pInputTextarea [autoResize]="true" #valorDescripcion></textarea>
+            </div>
+            <br>
+            <div class="grid" >
+                <label for="direccion"  class="col">Categoria: </label>
+                <p-dropdown [options]="categories" class="col" [(ngModel)]="categoria" optionLabel="name"></p-dropdown>
+            </div>
+
+            <br>
+            <hr>
+            <p>Sube una imagen de tu producto</p>
+            
+            <div class="grid" >
+                <label for="imagen"  class="col">La imagen debe estar en formato JPG o PNG: </label>
+                <input type="file" accept=".png, .jpg, .jpeg, .bitmap" (change)="onUpload($event)">
+            </div>
+            <br>
+            <div *ngIf="urlImage | async " class="grid">
+                <p class="col">Previsualización: </p>
+                <img class="col" src="{{setUrl(urlImage | async)}}" width="150" >   
+            </div>
+
+            <br>
+            <div class="flex flex-wrap align-items-center  justify-content-center card-container yellow-container">
+                <p-button (onClick)="getDescripcion(valorDescripcion.value)" label="Crear producto" class="justify-content-center align-items-center" icon="pi pi-plus-circle" ></p-button>
+                
+            </div>
+        
+        </div>
+    </div>
+
+
+</div>
+

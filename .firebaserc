@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "subastasonline-6ae0c": {
+      "hosting": {
+        "soe": [
+          "subastasonline-6ae0c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "subastasonline-6ae0c"
+  }
+}

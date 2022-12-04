@@ -1,0 +1,49 @@
+<div class="card" style="margin-top: 75px">
+    
+    <div class="flex flex-wrap align-items-center  justify-content-center card-container yellow-container">
+        <div class="p-field " style="margin-top: 25px; margin-bottom: 25px">
+            <p-messages [(value)]="msgs1"  *ngIf="error"></p-messages>
+            
+            <div class="grid" >
+                <label for="cedula"  class="col">Foto de perfil: </label>
+                <input type="file" accept=".png, .jpg, .jpeg, .bitmap" class="col" (change)="onUpload($event)">
+            </div>
+            <br>
+            <div *ngIf="urlImage | async " class="grid">
+                <p class="col">Previsualización: </p>
+                <div class="col">
+                    <img  src="{{setUrl(urlImage | async)}}" height="100" >
+                </div>
+                
+                   
+            </div>
+            <br>
+
+            <div class="grid" >
+                <label for="username1"  class="col">Correo electrónico: </label>
+                <input id="username1" class="col" type="username" aria-describedby="username1-help" pInputText [(ngModel)]="correo" />
+            </div>
+            <br>
+            
+            <div class="grid">
+                <label for="password" class="col" >Contraseña: </label>
+                <p-password [(ngModel)]="password"  [feedback]="true" [toggleMask]="true" class="col" ></p-password>
+            </div>
+            <br>
+            
+            <div class="grid">
+                <label for="password" class="col" >Repita la contraseña: </label>
+                <p-password [(ngModel)]="passwordRep"  [feedback]="true" [toggleMask]="true" class="col" ></p-password>
+            </div>
+            
+            <br>
+            
+            <div class="flex flex-wrap align-items-center  justify-content-center card-container yellow-container">
+                <p-button label="Continuar" class="p-button-success justify-content-center align-items-center " icon="pi pi-arrow-right" (onClick)="crearUsuario()"></p-button>
+            </div>
+        
+        </div>
+    </div>
+
+
+</div>

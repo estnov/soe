@@ -1,0 +1,18 @@
+.cabecera{
+    position: absolute;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    overflow: hidden;
+    background-color: rgb(255, 249, 233);
+}
+
+.busqueda{
+    background-color: rgb(255, 249, 233);
+}
+
+::ng-deep .p-toolbar.toolbarS {
+    margin: 0 auto;
+    background-color: rgb(255, 249, 233);
+    }
+

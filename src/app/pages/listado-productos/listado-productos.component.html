@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subastas</title>
+    <link rel="stylesheet" href="https://unpkg.com/primeflex@3.1.2/primeflex.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+<body>
+    <div class="grid">
+        <div class="col-8">
+            <h1 class="title">SUBASTAS ACTIVAS</h1>
+            <div class="container"*ngFor="let pr of productos| async">
+
+              
+
+                <div class="cardpr" type="submit" (click)="goProducto(pr.uid)" >
+                    <div class="grid">
+                        <div class="col-8">
+                            <img src={{pr.imagen}}>
+                        </div>
+                        <div class="col-4">
+                            <h4>{{pr.titulo}}</h4>
+                            <p>{{pr.descripcion}}</p>
+                            <h3>${{pr.precio}}</h3>
+                            <h6>{{pr.estado}}</h6>
+
+                        </div> 
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div class="col-4" *ngIf="getIniciado(); else NoIniciado">
+            <h1 class="title">TUS PRODUCTOS</h1>
+            
+            <div class="container">
+                
+                <div class="card" *ngFor="let pr of productos| async" >
+                   <span *ngIf="pr.codigoUnico == codigounico ">
+                        <img src="{{pr.imagen}} " >
+                        <h4>{{pr.titulo}}</h4>
+                        <h3>${{pr.precio}}</h3>
+                        <h6>{{pr.estado}}</h6>
+                   </span>
+                    
+                </div>
+      
+            </div>
+            
+           
+        </div>
+        <ng-template #NoIniciado class="col-4">
+
+            <div class="col-4" >
+                <h1 class="title">TUS PRODUCTOS</h1>
+                
+                <div class="container">
+                    <div class="card">
+                        <p>No se ha iniciado sesión</p>
+                    </div>
+    
+                </div>
+            </div>
+            
+
+        </ng-template>
+      
+    </div> 
+</body>
+</html>

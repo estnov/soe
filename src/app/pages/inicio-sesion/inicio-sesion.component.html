@@ -1,0 +1,34 @@
+
+<div class="card" style="margin-top: 75px">
+    
+        <div class="flex flex-wrap align-items-center  justify-content-center card-container yellow-container">
+            <div class="p-field " style="margin-top: 25px; margin-bottom: 25px">
+                <p-messages [(value)]="msgs1"  *ngIf="error"></p-messages>
+                
+                <div class="grid" >
+                    <label for="username1"  class="col">Correo electrónico: </label>
+                    <input id="username1" class="col" type="username" aria-describedby="username1-help" pInputText [(ngModel)]="correo" />
+                </div>
+                <br>
+                <div class="grid">
+                    <label for="password" class="col" >Contraseña: </label>
+                    <p-password [(ngModel)]="password" class="col" [feedback]="false" [toggleMask]="true" ></p-password>
+                </div>
+                <br>
+                <div class="flex flex-wrap align-items-center  justify-content-center card-container yellow-container">
+                    <p-button label="Iniciar sesión" class="justify-content-center align-items-center" icon="pi pi-user" (onClick)="inicioSesionNormal()"></p-button>
+                </div>
+                
+                <br>
+                <br>
+                <div class="flex flex-wrap align-items-center  justify-content-center card-container yellow-container">
+                    <p-button label="Google" icon="pi pi-google" class="justify-content-center align-items-center" (onClick)="inicioSesionGoogle()"  ></p-button>
+                </div>
+                
+            
+            </div>
+        </div>
+    
+    
+</div>
+
